@@ -81,6 +81,54 @@ public class Bouclefor {
                     } while (!valid);
 
                     break;
+                case 2:
+                    System.out.print("Entrer une valeur de hauteur impaire: ");
+                    int diamondHeight = sc.nextInt();
+                    if (diamondHeight % 2 == 0) {
+                        System.out.println("La hauteur doit être un nombre impair.");
+                    } else {
+                        // Affichage du losange
+                        int spaces = diamondHeight / 2;
+                        for (int i = 1; i <= diamondHeight; i += 2) {
+                            for (int j = 0; j < spaces; j++) {
+                                System.out.print(" ");
+                            }
+                            for (int j = 0; j < i; j++) {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                            spaces--;
+                        }
+                        spaces = 1;
+                        for (int i = diamondHeight - 2; i >= 1; i -= 2) {
+                            for (int j = 0; j < spaces; j++) {
+                                System.out.print(" ");
+                            }
+                            for (int j = 0; j < i; j++) {
+                                System.out.print("*");
+                            }
+                            System.out.println();
+                            spaces++;
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("Motif surprise!");
+                    for (int i = 1; i <= 5; i++) {
+                        for (int j = 1; j <= i; j++) {
+                            System.out.print("* ");
+                        }
+                        System.out.println();
+                    }
+                    for (int i = 4; i >= 1; i--) {
+                        for (int j = 1; j <= i; j++) {
+                            System.out.print("* ");
+                        }
+                        System.out.println();
+                    }
+                    break;
+                case 5:
+                    break;
             }
         } while (choice != 5);
 
