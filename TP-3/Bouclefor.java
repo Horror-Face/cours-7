@@ -10,6 +10,7 @@ public class Bouclefor {
                     .println("1. Affichage d'un rectangle\n2. Affichange d'un losange\n3. Motif surprise!\n5. Quitter");
             System.out.print("Votre choix : ");
             choice = sc.nextInt();
+
             switch (choice) {
                 case 1:
                     boolean valid = false;
@@ -18,6 +19,10 @@ public class Bouclefor {
                     do {
                         System.out.print("Entrer une valeur de hauteur: ");
                         height = sc.nextInt();
+                        if (height == 0) {
+                            System.out.println("erreur, Entrer vide.");
+
+                        }
 
                         if (height <= 0) {
                             System.out.println("valeur ne peuvent pas etre plus petite ou égal à 0");
@@ -82,16 +87,37 @@ public class Bouclefor {
 
                     break;
                 case 2:
+                    valid = false;
+                    do {
+                        System.out.print("Entrer une valeur de hauteur impaire: ");
+                        int diamondHeight = sc.nextInt();
+                        if (diamondHeight % 2 == 0) {
+                            System.out.println("La hauteur doit être un nombre impair.");
+                        } else {
+                            if (diamondHeight <= 0) {
+                                System.out.println("Valeur ne peux pas être négative ou 0.");
+                            } else {
+                                if (diamondHeight == 0) {
+                                    System.out.println("Valeur inexsistente, veuiller en entré une.");
+                                } else {
+                                    if (diamondHeight > 79) {
+                                        System.out.println("Limite de 79 ligne dépassé.");
+                                    } else {
+                                        if (diamondHeight < 3) {
+                                            System.out.println("minimum de trois requis.");
+                                        } else {
+                                            valid = true;
+                                        }
+                                    }
+                                }
 
-                    System.out.print("Entrer une valeur de hauteur impaire: ");
-                    int diamondHeight = sc.nextInt();
-                    if (diamondHeight % 2 == 0) {
-                        System.out.println("La hauteur doit être un nombre impair.");
-                    } else {
-                        if (diamondHeight <= 0) {
-                            System.out.println("Valeur ne peux pas être néhative ou 0.");
+                            }
+
                         }
-                        // Affichage du losange
+                        while (!valid)
+                            ;
+
+                        // losange
                         int spaces = diamondHeight / 2;
                         for (int i = 1; i <= diamondHeight; i += 2) {
                             for (int j = 0; j < spaces; j++) {
@@ -114,8 +140,10 @@ public class Bouclefor {
                             System.out.println();
                             spaces++;
                         }
+                        valid = true;
                     }
 
+                    while (!valid);
                     break;
                 case 3:
                     System.out.println("Motif surprise!");
