@@ -82,11 +82,15 @@ public class Bouclefor {
 
                     break;
                 case 2:
+
                     System.out.print("Entrer une valeur de hauteur impaire: ");
                     int diamondHeight = sc.nextInt();
                     if (diamondHeight % 2 == 0) {
                         System.out.println("La hauteur doit être un nombre impair.");
                     } else {
+                        if (diamondHeight <= 0) {
+                            System.out.println("Valeur ne peux pas être néhative ou 0.");
+                        }
                         // Affichage du losange
                         int spaces = diamondHeight / 2;
                         for (int i = 1; i <= diamondHeight; i += 2) {
@@ -111,18 +115,27 @@ public class Bouclefor {
                             spaces++;
                         }
                     }
+
                     break;
                 case 3:
                     System.out.println("Motif surprise!");
-                    for (int i = 1; i <= 5; i++) {
-                        for (int j = 1; j <= i; j++) {
-                            System.out.print("* ");
+                    int lignes = 8;
+                    for (int i = lignes; i >= 1; i--) {
+                        for (int j = lignes; j > i; j--) {
+                            System.out.print(" ");
+                        }
+                        for (int j = 1; j <= (2 * i - 1); j++) {
+                            System.out.print("*");
                         }
                         System.out.println();
                     }
-                    for (int i = 4; i >= 1; i--) {
-                        for (int j = 1; j <= i; j++) {
-                            System.out.print("* ");
+
+                    for (int i = 2; i <= lignes; i++) {
+                        for (int j = lignes; j > i; j--) {
+                            System.out.print(" ");
+                        }
+                        for (int j = 1; j <= (2 * i - 1); j++) {
+                            System.out.print("*");
                         }
                         System.out.println();
                     }
@@ -133,5 +146,6 @@ public class Bouclefor {
         } while (choice != 5);
 
         System.out.println("bye");
+        sc.close();
     }
 }
