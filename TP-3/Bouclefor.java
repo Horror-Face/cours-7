@@ -93,20 +93,27 @@ public class Bouclefor {
                         int diamondHeight = sc.nextInt();
                         if (diamondHeight % 2 == 0) {
                             System.out.println("La hauteur doit être un nombre impair.");
+                            continue;
                         } else {
                             if (diamondHeight <= 0) {
                                 System.out.println("Valeur ne peux pas être négative ou 0.");
+                                continue;
                             } else {
                                 if (diamondHeight == 0) {
                                     System.out.println("Valeur inexsistente, veuiller en entré une.");
+                                    continue;
                                 } else {
                                     if (diamondHeight > 79) {
                                         System.out.println("Limite de 79 ligne dépassé.");
+                                        continue;
                                     } else {
                                         if (diamondHeight < 3) {
                                             System.out.println("minimum de trois requis.");
+                                            continue;
                                         } else {
-                                            valid = true;
+                                            // if (diamondHeight) {
+                                                
+                                            // }
                                         }
                                     }
                                 }
