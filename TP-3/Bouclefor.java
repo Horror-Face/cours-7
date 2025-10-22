@@ -69,11 +69,11 @@ public class Bouclefor {
                                     valid = true;
                                     break;
                                 case 'N':
-                                    
+
                                     valid = true;
                                     break;
                                 default:
-                                    System.out.println("T CAVE");
+                                    System.out.println("Entré invalide");
                                     break;
                             }
                         }
