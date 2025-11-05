@@ -46,12 +46,7 @@ public class Bouclefor {
                         }
                     } while (!valid);
 
-                    for (int y = 0; y < height; y++) {
-                        for (int x = 0; x < length; x++) {
-                            System.out.print("* ");
-                        }
-                        System.out.println();
-                    }
+                    showRect(height, length);
 
                     sc.nextLine();
                     valid = false;
@@ -91,6 +86,7 @@ public class Bouclefor {
                     do {
                         System.out.print("Entrer une valeur de hauteur impaire: ");
                         int diamondHeight = sc.nextInt();
+
                         if (diamondHeight % 2 == 0) {
                             System.out.println("La hauteur doit être un nombre impair.");
                             continue;
@@ -111,9 +107,7 @@ public class Bouclefor {
                                             System.out.println("minimum de trois requis.");
                                             continue;
                                         } else {
-                                            // if (diamondHeight) {
-                                                
-                                            // }
+                                            valid = true;
                                         }
                                     }
                                 }
@@ -125,55 +119,15 @@ public class Bouclefor {
                             ;
 
                         // losange
-                        int spaces = diamondHeight / 2;
-                        for (int i = 1; i <= diamondHeight; i += 2) {
-                            for (int j = 0; j < spaces; j++) {
-                                System.out.print(" ");
-                            }
-                            for (int j = 0; j < i; j++) {
-                                System.out.print("*");
-                            }
-                            System.out.println();
-                            spaces--;
-                        }
-                        spaces = 1;
-                        for (int i = diamondHeight - 2; i >= 1; i -= 2) {
-                            for (int j = 0; j < spaces; j++) {
-                                System.out.print(" ");
-                            }
-                            for (int j = 0; j < i; j++) {
-                                System.out.print("*");
-                            }
-                            System.out.println();
-                            spaces++;
-                        }
+                        showDiam(diamondHeight);
                         valid = true;
                     }
 
                     while (!valid);
                     break;
                 case 3:
-                    System.out.println("Motif surprise!");
-                    int lignes = 8;
-                    for (int i = lignes; i >= 1; i--) {
-                        for (int j = lignes; j > i; j--) {
-                            System.out.print(" ");
-                        }
-                        for (int j = 1; j <= (2 * i - 1); j++) {
-                            System.out.print("*");
-                        }
-                        System.out.println();
-                    }
-
-                    for (int i = 2; i <= lignes; i++) {
-                        for (int j = lignes; j > i; j--) {
-                            System.out.print(" ");
-                        }
-                        for (int j = 1; j <= (2 * i - 1); j++) {
-                            System.out.print("*");
-                        }
-                        System.out.println();
-                    }
+                    int lines = 8;
+                    showSupr(lines);
                     break;
                 case 5:
                     break;
@@ -182,5 +136,63 @@ public class Bouclefor {
 
         System.out.println("bye");
         sc.close();
+    }
+
+    public static void showSupr(int lines) {
+        System.out.println("Motif surprise!");
+
+        for (int i = lines; i >= 1; i--) {
+            for (int j = lines; j > i; j--) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        for (int i = 2; i <= lines; i++) {
+            for (int j = lines; j > i; j--) {
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= (2 * i - 1); j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void showDiam(int diamondHeight) {
+        int spaces = diamondHeight / 2;
+        for (int i = 1; i <= diamondHeight; i += 2) {
+            for (int j = 0; j < spaces; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            spaces--;
+        }
+        spaces = 1;
+        for (int i = diamondHeight - 2; i >= 1; i -= 2) {
+            for (int j = 0; j < spaces; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+            spaces++;
+        }
+    }
+
+    public static void showRect(int height, int length) {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < length; x++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
     }
 }
