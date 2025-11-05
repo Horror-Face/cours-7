@@ -137,6 +137,7 @@ public class Bouclefor {
         System.out.println("bye");
         sc.close();
     }
+    
 
     public static void showSupr(int lines) {
         System.out.println("Motif surprise!");
